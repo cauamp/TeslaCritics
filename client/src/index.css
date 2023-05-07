@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Heebo:wght@400;500;700&family=Open+Sans:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-size: 100%;
+    background-color: #24272E;
+    overflow-x: hidden;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    height: min-content;
+    width: 100vw;
+    min-height: 100vh;
+
+}
+body::-webkit-scrollbar {
+	width: 12px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+	background: #0F1819; /* color of the tracking area */
+	opacity: 0.2;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: #24272E; /* color of the scroll thumb */
+	border-radius: 20px; /* roundness of the scroll thumb */
+	border: 3px solid transparent; /* creates padding around scroll thumb */
+    height: 50%;
+}
+
+a{
+    color: inherit;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background-color: #0F1819;
+    border-bottom: 1px solid #ffffff;
+
+}
+
+.cabecalho_logo {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    height: 100%;
+    border-right: 1px solid #FFFFFF;
+    align-items: center;
+
+}
+
+.cabecalho_titulo {
+    display: flex;
+    padding-left: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.cabecalho_usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    justify-content: center;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.footer_fixed{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.rodape {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    background-color: #0F1819;
+    border-top: 1px solid #ffffff;
+}
+
+.termos_uso{
+    padding-left: 20px;
+    align-items: center;
+}
+
+.redes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 30px;
+    gap: 15px;
+    height: 40px;
+}
+
+.redes > a > img{
+    height: 30px;
+}
+
+
+img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+}
+button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+input{
+    color: #636363;
+    align-content: left;
+    background-color: inherit;
+    border: 2px solid #636363;
+}
+
+textarea{
+    color: #636363;
+    align-content: left;
+    background-color: inherit;
+    border: 2px solid #636363;
+}

@@ -1,0 +1,67 @@
+input,
+select, option,
+textarea {
+    width: 20vw;
+    height: 4vh;
+    resize: none;
+    padding: 8px 12px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 20vw;
+    height: 8vh;
+    resize: none;
+    padding: 8px 12px;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+label {
+    width: 20vw;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.div_add_movie {
+    width: 40%;
+    margin: 0 30%;
+    background-color: #24272E;
+    padding-top: 50px;
+    border: 1px solid white;
+
+}
+
+.div_add_movie>h1 {
+    margin-left: 20%;
+
+}
+
+.form_add_movie {
+    width: 100%;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+
+#salvar_button {
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    border-radius: 30px;
+    width: 10vw;
+    font-size: 1em;
+    height: 5vh;
+
+}
+
+#salvar_button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+
+}
