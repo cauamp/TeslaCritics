@@ -1,0 +1,115 @@
+body {
+
+    background-image: url("https://wallpapercave.com/wp/wp2411645.jpg");
+    background-color: #000000;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment: fixed;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 50%;
+    margin:0 25%;
+
+}
+
+.conteudo-principal {
+    margin-bottom: 10px;
+    background-color: #24272E;
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin-right: 50px;
+    display: flex;
+    gap: 5vw;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 7px 7px 15px black;
+
+}
+
+.capa-grande {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.capa-grande>img {
+    height: 30vh;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 7px 7px 15px black;
+
+}
+
+.conteudo-principal-escrito {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 50%;
+    max-height: 100%;
+}
+
+.area-criticas {
+    border-top: 1px solid #636363;
+    background-color: #24272E;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    justify-content: flex-start;
+    align-items: center;
+    height: max-content;
+    width: 80%;
+    margin: 0 10%;
+}
+
+.adicionar-critica{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.adicionar-critica>textarea {
+    margin-top: 10px;
+    color: #636363;
+    align-content: left;
+    padding-left: 10px;
+    padding-top: 5px;
+    background-color: inherit;
+    border: 2px solid #636363;
+    width: 20vw;
+    height: 8vh;
+    resize: none;
+    margin-left: 15px;
+
+}
+
+.critica {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 3px;
+    border-bottom: 1px solid #636363;
+    padding: 5px;
+    width: 60%;
+}
+
+.critica>p {
+    padding-left: 5px;
+}
+
+.rodape {
+    position: relative;
+    margin-top: 0;
+}
