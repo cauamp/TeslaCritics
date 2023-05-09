@@ -57,7 +57,7 @@ function AddMoviePage() {
             <footer className="footer_fixed">
                 <div className="rodape">
                     <div className="termos_uso">
-                        <h4>Termos de Uso - Política de privacidade</h4>
+                        <h4>Todos os direitos reservados &#169;</h4>
                     </div>
 
                     <div className="redes">

@@ -56,21 +56,21 @@ function HomePage() {
                             </div>
 
                             <div className="capa_filme">
-                                <a>
+                                <a href="/moviepage" >
                                     <img src='https://br.web.img2.acsta.net/medias/nmedia/18/90/07/53/20391069.jpg' alt="Nome do filme" />
                                     <p>Django Livre</p>
                                 </a>
                             </div>
 
                             <div className="capa_filme">
-                                <a>
+                                <a href="/moviepage">
                                     <img src='https://upload.wikimedia.org/wikipedia/pt/1/10/CidadedeDeus.jpg' alt="Nome do filme" />
                                     <p>Cidade de Deus</p>
                                 </a>
                             </div>
 
                             <div className="capa_filme">
-                                <a>
+                                <a href="/moviepage">
                                     <img src='https://upload.wikimedia.org/wikipedia/pt/3/3a/Interstellar_Filme.png' alt="Nome do filme" />
                                     <p>Interestelar</p>
                                 </a>
@@ -87,7 +87,7 @@ function HomePage() {
             <footer className="footer_fixed">
                 <div className="rodape">
                     <div className="termos_uso">
-                        <h4>Termos de Uso - Política de privacidade</h4>
+                        <h4>Todos os direitos reservados &#169;</h4>
                     </div>
 
                     <div className="redes">

@@ -91,6 +91,10 @@ header {
     margin-right: 10px;
 }
 
+.cabecalho_logo  :hover, .cabecalho_usuario :hover{
+    cursor: pointer;
+}
+
 .footer_fixed{
     display: flex;
     flex-direction: column;
