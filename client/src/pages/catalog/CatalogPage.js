@@ -77,9 +77,9 @@ function CatalogPage() {
                                     return (
     
                                         <div id="movie" key = {filme.id} onClick={()=> {goToMovie(filme.nome)}}>
-                                            <a ><img alt= {filme.nome} src= {filme.capa}/>
+                                            <a ><img alt= {filme.nome} src= {filme.picURL}/>
                                                 <h3><i>{filme.nome}</i></h3>
-                                                <h5>Nota: {filme.nota} ★</h5>
+                                                <h5>Ano: {filme.ano} </h5>
                                             </a>
                                         </div>
     
@@ -90,10 +90,10 @@ function CatalogPage() {
                                 filmesList.map((filme) => {
                                     return (
     
-                                        <div id="movie" key = {filme.id}onClick={()=> {goToMovie(filme.nome)}}>
-                                            <a><img alt= {filme.nome} src= {filme.capa}/>
+                                        <div id="movie" key = {filme.id} onClick={()=> {goToMovie(filme.nome)}}>
+                                            <a ><img alt= {filme.nome} src= {filme.picURL}/>
                                                 <h3><i>{filme.nome}</i></h3>
-                                                <h5>Nota: {filme.nota} ★</h5>
+                                                <h5>Ano: {filme.ano} </h5>
                                             </a>
                                         </div>
     
