@@ -50,7 +50,7 @@ function MoviePage() {
                             Sanders) e Doyle (Wes Bentley), ele seguirá em busca de uma nova casa. Com o passar dos anos,
                             sua
                             filha Murph (Mackenzie Foy e Jessica Chastain) investirá numa própria jornada para também tentar
-                            salvar a população do planeta</p>
+                            salvar a população do planeta.</p>
                     </div>
                 </div>
 

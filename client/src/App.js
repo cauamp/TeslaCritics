@@ -1,6 +1,6 @@
 //import React, { useState, useEffect } from 'react';
+//import Axios from "axios"
 import './App.css';
-import Axios from "axios"
 import HomePage from './pages/home/HomePage';
 import MoviePage from './pages/moviePage/MoviePage';
 import AddMoviePage from './pages/addMovie/AddMoviePage';
