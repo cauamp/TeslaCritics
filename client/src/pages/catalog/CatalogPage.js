@@ -19,21 +19,20 @@ function CatalogPage() {
     }
 
     const goToMovie = (filme) => {
-        console.log('indo para ' + filme );
         navigate(`/moviePage/${filme}`);
+
     }
 
-    
+
     useEffect(() => {
         Axios.get('http://localhost:3001/api/getFilmes').then((response) => {
             setFilmesList(response.data);
-            console.log(filmesList[0]);
         })
     }, [])
 
-    const filteredFilmesList = pesquisa.length > 0 
-    ? filmesList.filter(filmesList => filmesList.nome.toLowerCase().includes(pesquisa.toLowerCase()))
-    : [];
+    const filteredFilmesList = pesquisa.length > 0
+        ? filmesList.filter(filmesList => filmesList.nome.toLowerCase().includes(pesquisa.toLowerCase()))
+        : [];
 
 
     return (
@@ -75,33 +74,33 @@ function CatalogPage() {
                             {pesquisa.length > 0 ? (
                                 filteredFilmesList.map((filme) => {
                                     return (
-    
-                                        <div id="movie" key = {filme.id} onClick={()=> {goToMovie(filme.nome)}}>
-                                            <a ><img alt= {filme.nome} src= {filme.picURL}/>
+
+                                        <div id="movie" key={filme.id} onClick={() => { goToMovie(filme.nome) }}>
+                                            <a ><img alt={filme.nome} src={filme.picURL} />
                                                 <h3><i>{filme.nome}</i></h3>
                                                 <h5>Ano: {filme.ano} </h5>
                                             </a>
                                         </div>
-    
-    
+
+
                                     )
                                 })
                             ) : (
                                 filmesList.map((filme) => {
                                     return (
-    
-                                        <div id="movie" key = {filme.id} onClick={()=> {goToMovie(filme.nome)}}>
-                                            <a ><img alt= {filme.nome} src= {filme.picURL}/>
+
+                                        <div id="movie" key={filme.id} onClick={() => { goToMovie(filme.nome) }}>
+                                            <a ><img alt={filme.nome} src={filme.picURL} />
                                                 <h3><i>{filme.nome}</i></h3>
                                                 <h5>Ano: {filme.ano} </h5>
                                             </a>
                                         </div>
-    
-    
+
+
                                     )
                                 })
                             )}
-                            {}
+                            { }
                         </div>
 
                     </div>

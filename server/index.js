@@ -18,20 +18,49 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/api/getFilmes', (req, res) => {
     const sqlSelect = "SELECT * FROM filmes";
     db.query(sqlSelect, (err, result) => {
-        if(err){
+        if (err) {
             console.log(err);
             console.log("\n DEU RUIM \n");
-        } else{
+        } else {
             res.send(result);
         }
-    }); 
+    });
 })
 
-app.get('/moviePage/:movieName', (req, res) => {
-    const movie = req.params.movieName
-    console.log("cheguei");
+app.get('/moviePage/:movieName/get', (req, res) => {
+    const filme = req.params.movieName
+    const sqlSelect = "SELECT * FROM filmes WHERE nome = ?";
+
+    db.query(sqlSelect, filme, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result[0]);
+        }
+    })
 
 });
+
+
+app.post('/api/insert', (req, res) => {
+
+    const nomeFilme = req.body.nomeFilme;
+    const sinopseFilme = req.body.sinopseFilme;
+    const anoFilme = req.body.anoFilme;
+    const filmePicURL = req.body.filmePicURL;
+
+    const sqlInsert = "INSERT INTO filmes (nome, sinopse, ano, picURL) VALUES (?, ?, ?, ?)"
+    db.query(sqlInsert, [nomeFilme, sinopseFilme, anoFilme, filmePicURL], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Adicionado");
+        }
+
+    });
+
+})
+
 
 app.listen(3001, () => {
     console.log("Running on :3001")

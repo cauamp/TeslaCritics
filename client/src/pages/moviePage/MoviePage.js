@@ -1,12 +1,22 @@
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import Axios from "axios"
+import { useNavigate, useParams } from "react-router-dom";
 import './MoviePageStyles.css';
-
 
 
 function MoviePage() {
 
+    const { movieName } = useParams();
+    const [filme, setFilme] = useState([]);
+   
+    useEffect(() => {
+        Axios.get(`http://localhost:3001/moviePage/${movieName}/get`).then((response) => {
+            setFilme(response.data);
+        })
+    }, [])
+
     const navigate = useNavigate();
-    const voltar = () =>{
+    const voltar = () => {
         navigate('/');
     }
     return (
@@ -32,25 +42,16 @@ function MoviePage() {
             <main className="main_MoviePage">
                 <div className="conteudo_principal">
                     <div className="capa_grande">
-                        <img src='https://upload.wikimedia.org/wikipedia/pt/3/3a/Interstellar_Filme.png'
-                            alt="Interestelar" />
+                        <img src={filme?.picURL}
+                            alt={filme?.nome} />
                     </div>
 
                     <div className="conteudo_principal_escrito">
-                        <h1>Interestelar</h1>
-                        <h3>2014</h3>
-                        <h3>Ficção científica</h3>
-                        <br/>
-                        <p> Após ver a Terra consumindo boa parte de suas reservas naturais, um grupo de astronautas recebe
-                            a
-                            missão de verificar possíveis planetas para receberem a população mundial, possibilitando a
-                            continuação da espécie. Cooper (Matthew McConaughey) é chamado para liderar o grupo e aceita a
-                            missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand (Anne Hathaway), Jenkins
-                            (Marlon
-                            Sanders) e Doyle (Wes Bentley), ele seguirá em busca de uma nova casa. Com o passar dos anos,
-                            sua
-                            filha Murph (Mackenzie Foy e Jessica Chastain) investirá numa própria jornada para também tentar
-                            salvar a população do planeta.</p>
+                        <h1>{filme?.nome}</h1>
+                        <h3>{filme?.ano}</h3>
+                        {/*<h3>Ficção científica</h3>*/}
+                        <br />
+                        <p> {filme?.sinopse}.</p>
                     </div>
                 </div>
 

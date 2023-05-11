@@ -89,13 +89,22 @@ input::placeholder {
     flex-direction: column;
     margin-top: 10px;
     gap: 1px;
+    width: 90%;
 }
 
 #movies {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
     margin-left: 50px;
+    width: 100%;
+    flex-wrap: wrap;
+
+}
+
+#movie {
+    height: 100%px;
 }
 
 #movie > a {
