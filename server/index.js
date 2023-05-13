@@ -42,12 +42,11 @@ app.get('/moviePage/:movieName/get', (req, res) => {
 });
 
 
-app.get('/moviePage/:movieName/getReviews', (req, res) => {
-    const filme = req.params.movieName
-    const sqlSelect = "SELECT * FROM criticas WHERE idfilme = (SELECT id FROM filmes WHERE nome = ?)";
+app.get('/moviePage/:movieName/getReviews/:idfilme', (req, res) => {
+    const idfilme = req.params.idfilme
+    const sqlSelect = "SELECT * FROM criticas WHERE idfilme = ?";
 
-
-    db.query(sqlSelect, filme, (err, result) => {
+    db.query(sqlSelect, idfilme, (err, result) => {
         if (err) {
             console.log(err);
         } else {

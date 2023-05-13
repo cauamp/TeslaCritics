@@ -19,10 +19,15 @@ function MoviePage() {
     }, [])
 
     useEffect(() => {
-        Axios.get(`http://localhost:3001/moviePage/${movieName}/getReviews`,).then((response) => {
-            setReviewsList(response.data);
-        })
-    }, [])
+
+        if (filme.id != undefined) {
+            Axios.get(`http://localhost:3001/moviePage/${movieName}/getReviews/${filme.id}`, {
+            }).then((response) => {
+                setReviewsList(response.data);
+            })
+        }
+
+    }, [filme.id])
 
     const navigate = useNavigate();
     const voltar = () => {
@@ -84,8 +89,8 @@ function MoviePage() {
                         <h2>Críticas sobre o filme:</h2>
                         <textarea type="text" placeholder="Escreva sua critica..." onChange={(e) => { setNewFilmeReview(e.target.value) }} />
 
-                        {(newFilmeReview) && <button className='addReview' onClick={adicionarReview}>Adicionar Review</button>} 
-                       
+                        {(newFilmeReview) && <button className='addReview' onClick={adicionarReview}>Adicionar Review</button>}
+
                     </div>
 
                     {reviewsList.map((review) => {
