@@ -36,13 +36,14 @@ app.get('/moviePage/:movieName/get', (req, res) => {
             console.log(err);
         } else {
             res.send(result[0]);
+            console.log("MoviePage atualizada")
         }
     })
 
 });
 
 
-app.get('/moviePage/:movieName/getReviews/:idfilme', (req, res) => {
+app.get('/moviePage/getReviews/:idfilme', (req, res) => {
     const idfilme = req.params.idfilme
     const sqlSelect = "SELECT * FROM criticas WHERE idfilme = ?";
 
@@ -51,6 +52,7 @@ app.get('/moviePage/:movieName/getReviews/:idfilme', (req, res) => {
             console.log(err);
         } else {
             res.send(result);
+            console.log("Reviews atualizadas")
         }
     })
 });

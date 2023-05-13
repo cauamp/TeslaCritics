@@ -93,7 +93,7 @@
 
 }
 
-.adicionar_critica>button {
+.adicionar_critica > form >button {
     margin-top: 2px;
     padding-left: 10px;
     padding-top: 5px;
@@ -109,7 +109,7 @@
 
 }
 
-.adicionar_critica button:active {
+.adicionar_critica > form  button:active {
     background-color: #636363;
 }
 

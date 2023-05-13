@@ -24,6 +24,18 @@ label {
     justify-content: flex-start;
 }
 
+.body_addMovie{
+    background-image: url("https://wallpapercave.com/wp/wp2411645.jpg");
+    background-color: #000000;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment: fixed;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
 .div_add_movie {
     width: 40%;
     margin: 0 30%;

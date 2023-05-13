@@ -9,30 +9,10 @@ function HomePage() {
     const navigate = useNavigate();
     const abrirCatalogo = () => {
         navigate('/catalog');
-    } 
-    const voltar = () => {
-        navigate('/');
     }
 
     return (
-        <div>
-            <header>
-                <div className="cabecalho">
-                    <div className="cabecalho_logo" onClick={voltar}>
-                        <img src="/assets/logo.png" alt="logo" />
-                    </div>
-
-
-                    <div className="cabecalho_titulo">
-                        <h1>TESLA CRITICS</h1>
-                    </div>
-
-                    <div className="cabecalho_usuario">
-                        <img src="./assets/user.ico" alt="user" />
-                    </div>
-
-                </div>
-            </header>
+        <div className="body_home">
             <main>
                 <section>
                     <div className="descubra">
@@ -83,20 +63,6 @@ function HomePage() {
                     </div>
                 </section>
             </main>
-
-            <footer className="footer_fixed">
-                <div className="rodape">
-                    <div className="termos_uso">
-                        <h4>Todos os direitos reservados &#169;</h4>
-                    </div>
-
-                    <div className="redes">
-                        <a> <img src="./assets/instagram.ico" alt="instagram logo" /></a>
-                        <a> <img src="./assets/twitter.ico" alt=" twitter logo" /></a>
-                        <a> <img src="./assets/youtube.ico" alt="youtube logo" /></a>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 }
