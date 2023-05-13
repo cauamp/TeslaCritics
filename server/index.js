@@ -42,6 +42,41 @@ app.get('/moviePage/:movieName/get', (req, res) => {
 });
 
 
+app.get('/moviePage/:movieName/getReviews', (req, res) => {
+    const filme = req.params.movieName
+    const sqlSelect = "SELECT * FROM criticas WHERE idfilme = (SELECT id FROM filmes WHERE nome = ?)";
+
+
+    db.query(sqlSelect, filme, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
+
+
+app.post('/moviePage/:movieName/insertReview', (req, res) => {
+
+    const nomeUsuario = req.body.nomeUsuario;
+    const criticaFilme = req.body.criticaFilme;
+    const notaFilme = req.body.notaFilme;
+    const idfilme = req.body.idFilme;
+
+    const sqlInsert = "INSERT INTO criticas (usuario, critica, nota, idfilme) VALUES (?, ?, ?, ?)"
+    db.query(sqlInsert, [nomeUsuario, criticaFilme, notaFilme, idfilme], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Critica adicionada");
+        }
+
+    });
+
+})
+
+
 app.post('/api/insert', (req, res) => {
 
     const nomeFilme = req.body.nomeFilme;

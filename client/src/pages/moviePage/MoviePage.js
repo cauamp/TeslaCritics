@@ -8,17 +8,41 @@ function MoviePage() {
 
     const { movieName } = useParams();
     const [filme, setFilme] = useState([]);
-   
+    const [reviewsList, setReviewsList] = useState([]);
+    const [newFilmeReview, setNewFilmeReview] = useState('');
+
+
     useEffect(() => {
         Axios.get(`http://localhost:3001/moviePage/${movieName}/get`).then((response) => {
             setFilme(response.data);
         })
     }, [])
 
+    useEffect(() => {
+        Axios.get(`http://localhost:3001/moviePage/${movieName}/getReviews`,).then((response) => {
+            setReviewsList(response.data);
+        })
+    }, [])
+
     const navigate = useNavigate();
     const voltar = () => {
-        navigate('/');
+        navigate('/catalog');
     }
+
+    const adicionarReview = () => {
+        const nomeUsuario = prompt("Digite seu nome de usuario");
+        Axios.post(`http://localhost:3001/moviePage/${movieName}/insertReview`, {
+            nomeUsuario: nomeUsuario,
+            criticaFilme: newFilmeReview,
+            notaFilme: 5,
+            idFilme: filme.id
+        }).then(() => {
+            setReviewsList([...reviewsList, { usuario: nomeUsuario, critica: newFilmeReview }])
+        }
+        )
+        setNewFilmeReview("");
+    }
+
     return (
         <div className="body_movie_page">
             <header>
@@ -58,22 +82,22 @@ function MoviePage() {
                 <div className="area_criticas">
                     <div className="adicionar_critica">
                         <h2>Críticas sobre o filme:</h2>
-                        <textarea type="text" placeholder="Escreva sua critica..." />
+                        <textarea type="text" placeholder="Escreva sua critica..." onChange={(e) => { setNewFilmeReview(e.target.value) }} />
+
+                        {(newFilmeReview) && <button className='addReview' onClick={adicionarReview}>Adicionar Review</button>} 
+                       
                     </div>
-                    <div className="critica">
-                        <h4>Pedrinho 123</h4>
-                        <p>Filmaço E S P E T A C U L A R. Uma obra prima para o futuro com certeza. Um elenco de
-                            primeiríssima com atuações magistrais. Ficção Cientifica com um drama muito bem contado. Roteiro
-                            bem construído. Por enquanto, o único filme da safra 2014 sério candidato a muitos prêmios.</p>
-                    </div>
-                    <div className="critica">
-                        <h4>Maria 456</h4>
-                        <p>Nunca fomos tão longe... Foi o que a personagem de Anne Hathaway, Dr Brand, disse em um
-                            determinado momento do filme, e eu tenho que concordar. Cinematograficamente, Nolan nunca havia
-                            ido tão longe. Há exatamente um ano, eu me deparei com um pequeno teaser. No tal vídeo, víamos
-                            Matthew Mcconaughey dirigindo uma pick-up, com lágrimas nos olhos, falando sobre o pioneirismo
-                            do homem. Algumas imagens de um milharal, e um foguete subindo aos ...</p>
-                    </div>
+
+                    {reviewsList.map((review) => {
+                        return (
+
+                            <div className="critica">
+                                <h4>{review?.usuario}</h4>
+                                <p>{review?.critica}</p>
+                            </div>
+                        )
+                    })}
+
                 </div>
             </main>
 

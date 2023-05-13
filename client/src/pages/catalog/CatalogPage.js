@@ -25,7 +25,8 @@ function CatalogPage() {
 
 
     useEffect(() => {
-        Axios.get('http://localhost:3001/api/getFilmes').then((response) => {
+        Axios.get('http://localhost:3001/api/getFilmes').
+        then((response) => {
             setFilmesList(response.data);
         })
     }, [])
