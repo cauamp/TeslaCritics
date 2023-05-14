@@ -50,7 +50,7 @@ function HomePage() {
                                                 <p>{filme.nome}</p>
                                             </div>
                                         )
-                                    return -1
+                                    return ""
 
                                 })
                             }
