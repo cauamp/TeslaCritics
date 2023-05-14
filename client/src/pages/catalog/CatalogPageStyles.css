@@ -126,6 +126,7 @@ input::placeholder {
     transform: scale(1.05);
     filter: grayscale(100%) brightness(50%) blur(0.5px);
 }
+
 #movie > h3 {
     max-width: 15ch;
     overflow: hidden;

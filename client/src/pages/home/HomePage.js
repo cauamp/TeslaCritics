@@ -47,7 +47,7 @@ function HomePage() {
                                         return (
                                             <div className="capa_filme" onClick={() => { goToMovie(filme.nome) }}>
                                                 <img alt={filme.nome} src={filme.picURL} />
-                                                <p>{filme.nome}</p>
+                                                <h3>{filme.nome}</h3>
                                             </div>
                                         )
                                     return ""
