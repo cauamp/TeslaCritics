@@ -22,14 +22,14 @@ function CatalogPage() {
 
     useEffect(() => {
         Axios.get('http://localhost:3001/api/getFilmes')
-        .then((response) => {
-            setFilmesList(response.data);
-        })
+            .then((response) => {
+                setFilmesList(response.data);
+            })
     }, [])
 
     const filteredFilmesList = pesquisa.length > 0
-        ? filmesList.filter(filmesList => filmesList.nome.toLowerCase().includes(pesquisa.toLowerCase()))
-        : [];
+        ? filmesList.filter(filmesList => filmesList.nome.toLowerCase().includes(pesquisa.toLowerCase())).sort((f1, f2) => (f1.nome > f2.nome) ? 1 : -1)
+        : filmesList.sort((f1, f2) => (f1.nome > f2.nome) ? 1 : -1);
 
 
     return (
@@ -51,35 +51,17 @@ function CatalogPage() {
                         <h2>• NOSSOS FILMES</h2>
                         <div id="movies">
 
-                            {pesquisa.length > 0 ? (
-                                filteredFilmesList.map((filme) => {
-                                    return (
+                            {filteredFilmesList.map((filme) => {
+                                return (
+                                    <div id="movie" key={filme.id} onClick={() => { goToMovie(filme.nome) }}>
+                                        <img alt={filme.nome} src={filme.picURL} />
+                                        <h3><i>{filme.nome}</i></h3>
+                                        <h5>Ano: {filme.ano} </h5>
 
-                                        <div id="movie" key={filme.id} onClick={() => { goToMovie(filme.nome) }}>
-                                            <img alt={filme.nome} src={filme.picURL} />
-                                                <h3><i>{filme.nome}</i></h3>
-                                                <h5>Ano: {filme.ano} </h5>
-                                            
-                                        </div>
-
-
-                                    )
-                                })
-                            ) : (
-                                filmesList.map((filme) => {
-                                    return (
-
-                                        <div id="movie" key={filme.id} onClick={() => { goToMovie(filme.nome) }}>
-                                            <img alt={filme.nome} src={filme.picURL} />
-                                                <h3><i>{filme.nome}</i></h3>
-                                                <h5>Ano: {filme.ano} </h5>
-                                        </div>
-
-
-                                    )
-                                })
-                            )}
-                            { }
+                                    </div>
+                                )
+                            })
+                            }
                         </div>
 
                     </div>

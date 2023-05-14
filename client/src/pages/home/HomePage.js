@@ -1,14 +1,27 @@
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import Axios from "axios"
 import './HomePageStyles.css';
 
 
 function HomePage() {
 
-
-
+    const [filmesList, setFilmesList] = useState([]);
     const navigate = useNavigate();
     const abrirCatalogo = () => {
         navigate('/catalog');
+    }
+    useEffect(() => {
+        Axios.get('http://localhost:3001/api/getFilmes')
+            .then((response) => {
+                setFilmesList(response.data);
+            })
+    }, [])
+
+    const sortedFilmesList = filmesList.sort(() => 0.5 - Math.random()) 
+    const goToMovie = (filme) => {
+        navigate(`/moviePage/${filme}`);
+
     }
 
     return (
@@ -28,33 +41,17 @@ function HomePage() {
                         <div className="acesso_rapido_catalogo">
 
                             <br />
-                            <div className="capa_filme">
-                                <a href="/moviepage" >
-                                    <img src='https://upload.wikimedia.org/wikipedia/pt/3/3a/Interstellar_Filme.png' alt="Nome do filme" />
-                                    <p>Interestelar</p>
-                                </a>
-                            </div>
-
-                            <div className="capa_filme">
-                                <a href="/moviepage" >
-                                    <img src='https://br.web.img2.acsta.net/medias/nmedia/18/90/07/53/20391069.jpg' alt="Nome do filme" />
-                                    <p>Django Livre</p>
-                                </a>
-                            </div>
-
-                            <div className="capa_filme">
-                                <a href="/moviepage">
-                                    <img src='https://upload.wikimedia.org/wikipedia/pt/1/10/CidadedeDeus.jpg' alt="Nome do filme" />
-                                    <p>Cidade de Deus</p>
-                                </a>
-                            </div>
-
-                            <div className="capa_filme">
-                                <a href="/moviepage">
-                                    <img src='https://upload.wikimedia.org/wikipedia/pt/3/3a/Interstellar_Filme.png' alt="Nome do filme" />
-                                    <p>Interestelar</p>
-                                </a>
-                            </div>
+                            {
+                                sortedFilmesList.map((filme, index) => {
+                                    if(index<4)
+                                    return (
+                                        <div className="capa_filme" onClick={() => { goToMovie(filme.nome) }}>
+                                            <img alt={filme.nome} src={filme.picURL} />
+                                            <p>{filme.nome}</p>
+                                        </div>
+                                    )
+                                })
+                            }
 
                         </div>
                         <br />
