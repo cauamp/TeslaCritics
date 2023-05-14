@@ -1,4 +1,4 @@
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import Axios from "axios"
 import './HomePageStyles.css';
@@ -18,7 +18,7 @@ function HomePage() {
             })
     }, [])
 
-    const sortedFilmesList = filmesList.sort(() => 0.5 - Math.random()) 
+    const sortedFilmesList = filmesList.sort(() => 0.5 - Math.random())
     const goToMovie = (filme) => {
         navigate(`/moviePage/${filme}`);
 
@@ -43,13 +43,15 @@ function HomePage() {
                             <br />
                             {
                                 sortedFilmesList.map((filme, index) => {
-                                    if(index<4)
-                                    return (
-                                        <div className="capa_filme" onClick={() => { goToMovie(filme.nome) }}>
-                                            <img alt={filme.nome} src={filme.picURL} />
-                                            <p>{filme.nome}</p>
-                                        </div>
-                                    )
+                                    if (index < 4)
+                                        return (
+                                            <div className="capa_filme" onClick={() => { goToMovie(filme.nome) }}>
+                                                <img alt={filme.nome} src={filme.picURL} />
+                                                <p>{filme.nome}</p>
+                                            </div>
+                                        )
+                                    return -1
+
                                 })
                             }
 
