@@ -6,6 +6,7 @@ import './CatalogPageStyles.css';
 
 function CatalogPage() {
     const [filmesList, setFilmesList] = useState([]);
+    const [generosList, setGenerosList] = useState([]);
     const [pesquisa, setPesquisa] = useState('');
     const navigate = useNavigate();
 
@@ -24,6 +25,13 @@ function CatalogPage() {
         Axios.get('http://localhost:3001/api/getFilmes')
             .then((response) => {
                 setFilmesList(response.data);
+            })
+    }, [])
+
+    useEffect(() => {
+        Axios.get('http://localhost:3001/api/getGeneros')
+            .then((response) => {
+                setGenerosList(response.data);
             })
     }, [])
 
@@ -46,24 +54,32 @@ function CatalogPage() {
                     <div id="add"><button onClick={addMovie}>Adicionar novo filme</button></div>
                 </section>
                 <section id="sec3">
-                    <div id="genero">
-                        <h2>• NOSSOS FILMES</h2>
-                        <div id="movies">
 
-                            {filteredFilmesList.map((filme) => {
-                                return (
-                                    <div id="movie" key={filme.id} onClick={() => { goToMovie(filme.nome) }}>
-                                        <img alt={filme.nome} src={filme.picURL} />
-                                        <h3><i>{filme.nome}</i></h3>
-                                        <h5>Ano: {filme.ano} </h5>
 
-                                    </div>
-                                )
-                            })
-                            }
-                        </div>
+                    {generosList.map((genero) => {
+                        return (
+                            <div id="genero">
+                                <h2>• {genero.nome}</h2>
+                                <div id="movies">
+                                    {filteredFilmesList.map((filme) => {
+                                        if (filme.idgenero === genero.id) {
+                                            return (
+                                                <div id="movie" key={filme.id} onClick={() => { goToMovie(filme.nome) }}>
+                                                    <img alt={filme.nome} src={filme.picURL} />
+                                                    <h3><i>{filme.nome}</i></h3>
+                                                    <h5>Nota: {filme.nota} </h5>
 
-                    </div>
+                                                </div>
+                                            )
+                                        }
+                                        return ("");
+                                    })}
+                                </div>
+                            </div>);
+
+                    })
+                    }
+
                 </section>
 
             </main>

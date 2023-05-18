@@ -27,6 +27,35 @@ app.get('/api/getFilmes', (req, res) => {
     });
 })
 
+app.get('/api/getGeneros', (req, res) => {
+    const sqlSelect = "SELECT * FROM generos ORDER BY nome";
+    db.query(sqlSelect, (err, result) => {
+        if (err) {
+            console.log(err);
+            console.log("\n DEU RUIM \n");
+        } else {
+            res.send(result);
+        }
+    });
+})
+
+app.put(`/api/:movieName/updateNota`, (req,res) => {
+    const filme = req.params.movieName
+    const nota = req.body.nota
+
+    const sqlUpdate =
+    "UPDATE filmes SET nota = ? WHERE nome = ?"
+    nota != undefined ? 
+    db.query(sqlUpdate, [nota, filme], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Nota Atualizada " + nota);
+        }
+    })
+    : console.log("NOTA undefined = " + nota);
+})
+
 app.post('/moviePage/:movieName/get', (req, res) => {
     const filme = req.params.movieName
     const sqlSelect = "SELECT * FROM filmes WHERE nome = ?";

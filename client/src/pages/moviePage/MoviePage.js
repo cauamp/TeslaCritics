@@ -28,12 +28,27 @@ function MoviePage() {
 
     }, [filme.id])
 
+    const updateNota = () => {
+        Axios.put(`http://localhost:3001/api/${movieName}/updateNota`, {
+            nota: notaMediaFilme
+        });
+        window.location.reload();
+    }
+
+
+    setTimeout(() => {
         reviewsList.map((e) => {
             notaMediaFilme += e.nota;
             count += 1;
             return 0
         });
         notaMediaFilme = notaMediaFilme / (count);
+        if (filme.nota !== notaMediaFilme && notaMediaFilme !== undefined && notaMediaFilme !== null && !isNaN(notaMediaFilme)) {
+            updateNota()
+        }
+    }, 500
+    )
+
     const adicionarReview = () => {
         const nomeUsuario = prompt("Digite seu nome de usuario");
         Axios.post(`http://localhost:3001/moviePage/${movieName}/insertReview`, {
@@ -59,8 +74,7 @@ function MoviePage() {
                     <div className="conteudo_principal_escrito">
                         <h1>{filme?.nome}</h1>
                         <h3>{filme?.ano}</h3>
-                        <h3>Nota: {notaMediaFilme}</h3>
-                        {/*<h3>Ficção científica</h3>*/}
+                        <h3>Nota: {filme?.nota}</h3>
                         <br />
                         <p> {filme?.sinopse}.</p>
                     </div>
