@@ -28,8 +28,8 @@ function CatalogPage() {
     }, [])
 
     const filteredFilmesList = pesquisa.length > 0
-        ? filmesList.filter(filmesList => filmesList.nome.toLowerCase().includes(pesquisa.toLowerCase())).sort((f1, f2) => (f1.nome > f2.nome) ? 1 : -1)
-        : filmesList.sort((f1, f2) => (f1.nome > f2.nome) ? 1 : -1);
+        ? filmesList.filter(filmesList => filmesList.nome.toLowerCase().includes(pesquisa.toLowerCase()))
+        : filmesList;
 
 
     return (
@@ -42,7 +42,6 @@ function CatalogPage() {
                 <section id="sec2">
                     <div id="busca">
                         <input id="pesquisaFilme" type="search" placeholder="Digite o nome de um filme..." onChange={e => setPesquisa(e.target.value)}></input>
-                        <button>OK</button>
                     </div>
                     <div id="add"><button onClick={addMovie}>Adicionar novo filme</button></div>
                 </section>

@@ -10,16 +10,17 @@ function MoviePage() {
     const [filme, setFilme] = useState([]);
     const [reviewsList, setReviewsList] = useState([]);
     const [newFilmeReview, setNewFilmeReview] = useState('');
-
+    var notaMediaFilme = 0;
+    var count = 0;
     useEffect(() => {
-        Axios.get(`http://localhost:3001/moviePage/${movieName}/get`).then((response) => {
+        Axios.post(`http://localhost:3001/moviePage/${movieName}/get`).then((response) => {
             setFilme(response.data);
         })
     }, [movieName])
 
     useEffect(() => {
         if (filme.id !== undefined) {
-            Axios.get(`http://localhost:3001/moviePage/getReviews/${filme.id}`, {
+            Axios.post(`http://localhost:3001/moviePage/getReviews/${filme.id}`, {
             }).then((response) => {
                 setReviewsList(response.data);
             })
@@ -27,6 +28,12 @@ function MoviePage() {
 
     }, [filme.id])
 
+        reviewsList.map((e) => {
+            notaMediaFilme += e.nota;
+            count += 1;
+            return 0
+        });
+        notaMediaFilme = notaMediaFilme / (count);
     const adicionarReview = () => {
         const nomeUsuario = prompt("Digite seu nome de usuario");
         Axios.post(`http://localhost:3001/moviePage/${movieName}/insertReview`, {
@@ -52,6 +59,7 @@ function MoviePage() {
                     <div className="conteudo_principal_escrito">
                         <h1>{filme?.nome}</h1>
                         <h3>{filme?.ano}</h3>
+                        <h3>Nota: {notaMediaFilme}</h3>
                         {/*<h3>Ficção científica</h3>*/}
                         <br />
                         <p> {filme?.sinopse}.</p>
@@ -75,6 +83,7 @@ function MoviePage() {
 
                             <div className="critica" key={review?.id} >
                                 <h4>{review?.usuario}</h4>
+                                <h4>Nota: {review?.nota}</h4>
                                 <p>{review?.critica}</p>
                             </div>
                         )

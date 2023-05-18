@@ -8,8 +8,8 @@ function Footer() {
                 </div>
 
                 <div className="redes">
-                    <a href='https://www.instagram.com/teslaufmg/'> <img src="/assets/instagram.ico" alt="instagram logo" /></a>
-                    <a href='https://linktr.ee/tesla.ufmg'> <img src="/assets/linktree.svg" alt=" twitter logo" /></a>
+                    <a href='https://www.instagram.com/teslaufmg/' target="_blank" rel="noreferrer"> <img src="/assets/instagram.ico" alt="instagram logo" /></a>
+                    <a href='https://linktr.ee/tesla.ufmg' target="_blank" rel="noreferrer"> <img src="/assets/linktree.svg" alt=" twitter logo" /></a>
                 </div>
             </div>
         </footer>

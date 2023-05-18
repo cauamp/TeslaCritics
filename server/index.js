@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/api/getFilmes', (req, res) => {
-    const sqlSelect = "SELECT * FROM filmes";
+    const sqlSelect = "SELECT * FROM filmes ORDER BY nome";
     db.query(sqlSelect, (err, result) => {
         if (err) {
             console.log(err);
@@ -27,7 +27,7 @@ app.get('/api/getFilmes', (req, res) => {
     });
 })
 
-app.get('/moviePage/:movieName/get', (req, res) => {
+app.post('/moviePage/:movieName/get', (req, res) => {
     const filme = req.params.movieName
     const sqlSelect = "SELECT * FROM filmes WHERE nome = ?";
 
@@ -43,7 +43,7 @@ app.get('/moviePage/:movieName/get', (req, res) => {
 });
 
 
-app.get('/moviePage/getReviews/:idfilme', (req, res) => {
+app.post('/moviePage/getReviews/:idfilme', (req, res) => {
     const idfilme = req.params.idfilme
     const sqlSelect = "SELECT * FROM criticas WHERE idfilme = ?";
 
