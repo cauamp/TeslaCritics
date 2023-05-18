@@ -51,10 +51,11 @@ function MoviePage() {
 
     const adicionarReview = () => {
         const nomeUsuario = prompt("Digite seu nome de usuario");
+        const notaFilme = document.querySelector('#form').fb.value
         Axios.post(`http://localhost:3001/moviePage/${movieName}/insertReview`, {
             nomeUsuario: nomeUsuario,
             criticaFilme: newFilmeReview,
-            notaFilme: 5,
+            notaFilme: notaFilme,
             idFilme: filme.id
         }).then(() => {
             setReviewsList([...reviewsList, { usuario: nomeUsuario, critica: newFilmeReview, nota: 5, idfilme: filme.id }])
@@ -83,12 +84,27 @@ function MoviePage() {
                 <div className="area_criticas">
                     <div className="adicionar_critica">
                         <h2>Críticas sobre o filme:</h2>
-                        <form>
+                        <form id='form'>
                             <textarea type="text" placeholder="Escreva sua critica..." onChange={(e) => {
                                 setNewFilmeReview(e.target.value)
                             }} />
 
+                            {(newFilmeReview) && <div class="estrelas">
+                                <input type="radio" id="cm_star-empty" name="fb" value="" checked />
+                                <label for="cm_star-1"><i class="fa"></i></label>
+                                <input type="radio" id="cm_star-1" name="fb" value="1" />
+                                <label for="cm_star-2"><i class="fa"></i></label>
+                                <input type="radio" id="cm_star-2" name="fb" value="2" />
+                                <label for="cm_star-3"><i class="fa"></i></label>
+                                <input type="radio" id="cm_star-3" name="fb" value="3" />
+                                <label for="cm_star-4"><i class="fa"></i></label>
+                                <input type="radio" id="cm_star-4" name="fb" value="4" />
+                                <label for="cm_star-5"><i class="fa"></i></label>
+                                <input type="radio" id="cm_star-5" name="fb" value="5" />
+                            </div>}
+
                             {(newFilmeReview) && <button className='addReview' onClick={adicionarReview}>Adicionar Review</button>}
+
                         </form>
                     </div>
 

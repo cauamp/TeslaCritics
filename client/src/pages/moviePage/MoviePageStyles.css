@@ -98,7 +98,6 @@
     padding-left: 10px;
     padding-top: 5px;
     resize: none;
-    margin-left: 15px;
     color: white;
     border-radius: 4px;
     filter: opacity(0.5);
@@ -128,3 +127,25 @@
 .critica>p {
     padding-left: 5px;
 }
+.estrelas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 224px;
+    margin-bottom: 5px;
+
+}
+.estrelas input[type=radio] {
+    display: none;
+
+  }
+  .estrelas label i.fa:before {
+    content:'★';
+    color: #FC0;
+    font-size: x-large;
+    font-style: normal;
+    cursor: pointer;
+  }
+  .estrelas input[type=radio]:checked ~ label i.fa:before {
+    color: #CCC;
+  }
