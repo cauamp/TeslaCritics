@@ -113,9 +113,10 @@ app.post('/api/insert', (req, res) => {
     const sinopseFilme = req.body.sinopseFilme;
     const anoFilme = req.body.anoFilme;
     const filmePicURL = req.body.filmePicURL;
+    const generoFilme = req.body.generoFilme;
 
-    const sqlInsert = "INSERT INTO filmes (nome, sinopse, ano, picURL) VALUES (?, ?, ?, ?)"
-    db.query(sqlInsert, [nomeFilme, sinopseFilme, anoFilme, filmePicURL], (err, result) => {
+    const sqlInsert = "INSERT INTO filmes (nome, sinopse, ano, picURL, idgenero) VALUES (?, ?, ?, ?, (SELECT id FROM generos WHERE nome = ?))"
+    db.query(sqlInsert, [nomeFilme, sinopseFilme, anoFilme, filmePicURL, generoFilme], (err, result) => {
         if (err) {
             console.log(err);
         } else {

@@ -149,7 +149,7 @@ button:hover{
     opacity: 0.8;
 }
 
-input{
+input, select{
     color: #636363;
     align-content: left;
     background-color: inherit;
