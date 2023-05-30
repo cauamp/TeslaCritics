@@ -104,8 +104,11 @@
 }
 
 .capa_filme>h3 {
-    max-width: 15ch;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+    max-width: 17vw;
+    overflow: clip;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
