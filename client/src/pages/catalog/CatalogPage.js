@@ -67,7 +67,7 @@ function CatalogPage() {
                                                 <div id="movie" key={filme.id} onClick={() => { goToMovie(filme.nome) }}>
                                                     <img alt={filme.nome} src={filme.picURL} />
                                                     <h3><i>{filme.nome}</i></h3>
-                                                    <h5>Nota: {filme.nota} </h5>
+                                                    <h5>Nota: {filme.nota} ★</h5>
 
                                                 </div>
                                             )

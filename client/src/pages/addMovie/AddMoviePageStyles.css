@@ -2,7 +2,7 @@ input,
 select, option,
 textarea {
     width: 20vw;
-    height: 4vh;
+    height: 5vh;
     resize: none;
     padding: 8px 12px;
     font-family: 'Open Sans', sans-serif;
@@ -31,14 +31,15 @@ label {
     background-repeat: no-repeat;
     background-position: bottom;
     background-attachment: fixed;
-    justify-content: center;
-    align-items: center;
     min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .div_add_movie {
-    width: 40%;
-    margin: 0 30%;
+    width: 600px;
     background-color: #24272E;
     padding-top: 50px;
     border: 1px solid white;

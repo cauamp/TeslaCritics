@@ -40,7 +40,7 @@ function AddMoviePage() {
                         <input type='url' placeholder='Capa do Filme (url)' autoComplete="off" required onChange={(e) => { setFilmePicURL(e.target.value) }} />
 
                         <label >Sinopse</label>
-                        <textarea type="text" placeholder="Sinopse" required onChange={(e) => { setSinopseFilme(e.target.value) }} />
+                        <textarea type="text" placeholder="  Sinopse" required onChange={(e) => { setSinopseFilme(e.target.value) }} />
 
                         <label >Gênero</label>
 

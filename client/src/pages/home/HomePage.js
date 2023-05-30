@@ -32,7 +32,7 @@ function HomePage() {
                         <div className="descubra_inside">
                             <h2> Descubra vários filmes e se aventure nas recomendações e avaliações de nossos usuários</h2>
 
-                            <p><br />e não se esqueça de nos contar suas opiniões e avaliar cada filme assistido!</p>
+                            <p>e não se esqueça de nos contar suas opiniões e avaliar cada filme assistido!</p>
                         </div>
                     </div>
 
