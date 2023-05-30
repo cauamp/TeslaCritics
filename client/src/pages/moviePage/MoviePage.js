@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Axios from "axios"
 import { useParams } from "react-router-dom";
 import './MoviePageStyles.css';
+import StarRating from "../starRating.js";
+import { FaStar } from 'react-icons/fa';
 
 
 function MoviePage() {
@@ -42,7 +44,7 @@ function MoviePage() {
             count += 1;
             return 0
         });
-        notaMediaFilme = notaMediaFilme / (count);
+        notaMediaFilme = Math.round(notaMediaFilme / (count) * 100) / 100
         if (filme.nota !== notaMediaFilme && notaMediaFilme !== undefined && notaMediaFilme !== null && !isNaN(notaMediaFilme)) {
             updateNota()
         }
@@ -63,6 +65,7 @@ function MoviePage() {
         )
     }
 
+    const stars = Array(5).fill(0);
     return (
         <div className="body_movie_page">
             <main className="main_MoviePage">
@@ -75,7 +78,15 @@ function MoviePage() {
                     <div className="conteudo_principal_escrito">
                         <h1>{filme?.nome}</h1>
                         <h3>{filme?.ano}</h3>
+                        <div className="nota">
                         <h3>Nota: {filme?.nota}</h3>
+                        {
+                            stars.map((star, i) => {
+                                const ratingValue = i+1;
+                                return (
+                                <FaStar className="stars" color={ratingValue <= filme?.nota ? "#ffc107" : "#e4e5e9"}></FaStar>
+                        );})}
+                        </div>
                         <br />
                         <p> {filme?.sinopse}.</p>
                     </div>
@@ -90,17 +101,7 @@ function MoviePage() {
                             }} />
 
                             {(newFilmeReview) && <div class="estrelas">
-                                <input type="radio" id="cm_star-empty" name="fb" value="" checked />
-                                <label for="cm_star-1"><i class="fa"></i></label>
-                                <input type="radio" id="cm_star-1" name="fb" value="1" />
-                                <label for="cm_star-2"><i class="fa"></i></label>
-                                <input type="radio" id="cm_star-2" name="fb" value="2" />
-                                <label for="cm_star-3"><i class="fa"></i></label>
-                                <input type="radio" id="cm_star-3" name="fb" value="3" />
-                                <label for="cm_star-4"><i class="fa"></i></label>
-                                <input type="radio" id="cm_star-4" name="fb" value="4" />
-                                <label for="cm_star-5"><i class="fa"></i></label>
-                                <input type="radio" id="cm_star-5" name="fb" value="5" />
+                                <StarRating/>
                             </div>}
 
                             {(newFilmeReview) && <button className='addReview' onClick={adicionarReview}>Adicionar Review</button>}
@@ -113,7 +114,15 @@ function MoviePage() {
 
                             <div className="critica" key={review?.id} >
                                 <h4>{review?.usuario}</h4>
-                                <h4>Nota: {review?.nota}</h4>
+                                <div className="nota">
+                                    
+                                    {
+                                        stars.map((star, i) => {
+                                        const ratingValue = i+1;
+                                        return (
+                                    <FaStar className="stars" color={ratingValue <= review?.nota ? "#ffc107" : "#e4e5e9"}></FaStar>
+                                    );})}
+                                </div>
                                 <p>{review?.critica}</p>
                             </div>
                         )

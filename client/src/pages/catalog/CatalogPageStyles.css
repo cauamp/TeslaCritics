@@ -18,6 +18,7 @@
     justify-content: center;
     align-items: center;
     font-size: 400%;
+    text-shadow: #636363 2px 2px 2px;
 }
 #sec1 > h3 {
     display: flex;

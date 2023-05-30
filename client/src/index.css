@@ -91,7 +91,7 @@ header {
     margin-right: 10px;
 }
 
-.cabecalho_logo  :hover, .cabecalho_usuario :hover{
+.cabecalho_logo  :hover, .cabecalho_titulo :hover{
     cursor: pointer;
 }
 

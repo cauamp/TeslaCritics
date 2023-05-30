@@ -149,3 +149,17 @@
   .estrelas input[type=radio]:checked ~ label i.fa:before {
     color: #CCC;
   }
+
+.stars{
+    size: 100px;
+}
+.nota{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    align-items: center;
+}
+
+.nota>h3{
+    margin-right: 10px;
+}

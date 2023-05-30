@@ -28,9 +28,15 @@
 }
 
 .descubra_inside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     position: relative;
-    width: 50%;
-    font-size: 1.5em;
+    width: 60%;
+    font-size: 1.4em;
+    text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 .acesso_rapido {
