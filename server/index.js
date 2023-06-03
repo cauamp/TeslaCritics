@@ -39,21 +39,21 @@ app.get('/api/getGeneros', (req, res) => {
     });
 })
 
-app.put(`/api/:movieName/updateNota`, (req,res) => {
+app.put(`/api/:movieName/updateNota`, (req, res) => {
     const filme = req.params.movieName
     const nota = req.body.nota
 
     const sqlUpdate =
-    "UPDATE filmes SET nota = ? WHERE nome = ?"
-    nota != undefined ? 
-    db.query(sqlUpdate, [nota, filme], (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Nota Atualizada " + nota);
-        }
-    })
-    : console.log("NOTA undefined = " + nota);
+        "UPDATE filmes SET nota = ? WHERE nome = ?"
+    nota != undefined ?
+        db.query(sqlUpdate, [nota, filme], (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Nota Atualizada " + nota);
+            }
+        })
+        : console.log("NOTA undefined = " + nota);
 })
 
 app.post('/moviePage/:movieName/get', (req, res) => {

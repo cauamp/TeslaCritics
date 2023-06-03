@@ -1,4 +1,4 @@
-.body_movie_page{
+.body_movie_page {
 
     background-image: url("https://wallpapercave.com/wp/wp2411645.jpg");
     background-color: #000000;
@@ -11,9 +11,9 @@
     min-height: 95vh;
 }
 
-.main_MoviePage{
+.main_MoviePage {
     width: 50vw;
-    margin:0 25%;
+    margin: 0 25%;
     min-height: 90vh;
 
 }
@@ -70,11 +70,11 @@
     align-items: center;
     width: 80%;
     margin: 0 10%;
-    min-height: 55vh;
+    min-height: 58vh;
 
 }
 
-.adicionar_critica{
+.adicionar_critica {
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@
 
 }
 
-.adicionar_critica > form >button {
+.adicionar_critica>form>button {
     margin-top: 2px;
     padding-left: 10px;
     padding-top: 5px;
@@ -108,7 +108,7 @@
 
 }
 
-.adicionar_critica > form  button:active {
+.adicionar_critica>form button:active {
     background-color: #636363;
 }
 
@@ -127,7 +127,8 @@
 .critica>p {
     padding-left: 5px;
 }
-.estrelas{
+
+.estrelas {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,31 +136,35 @@
     margin-bottom: 5px;
 
 }
+
 .estrelas input[type=radio] {
     display: none;
 
-  }
-  .estrelas label i.fa:before {
-    content:'★';
+}
+
+.estrelas label i.fa:before {
+    content: '★';
     color: #FC0;
     font-size: x-large;
     font-style: normal;
     cursor: pointer;
-  }
-  .estrelas input[type=radio]:checked ~ label i.fa:before {
-    color: #CCC;
-  }
+}
 
-.stars{
+.estrelas input[type=radio]:checked~label i.fa:before {
+    color: #CCC;
+}
+
+.stars {
     size: 100px;
 }
-.nota{
+
+.nota {
     display: flex;
     flex-direction: row;
     gap: 2px;
     align-items: center;
 }
 
-.nota>h3{
+.nota>h3 {
     margin-right: 10px;
 }
